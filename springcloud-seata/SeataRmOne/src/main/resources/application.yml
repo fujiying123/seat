@@ -1,16 +1,22 @@
 server:
-  port: 8080
+  port: 8900
 
 spring:
   application:
-    name: seata-tm
+    name: seata-rmone
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+    config:
+      enabled: false
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://10.35.227.217:3306/seata_tm?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
-#    username: mysql
-#    password: R7VuVj4M
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.74.130:3306/seata_tm?serverTimezone=GMT%2B8&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mysql://10.35.227.217:3306/seata_tm?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    #    username: mysql
+    #    password: R7VuVj4M
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.74.130:3306/seata-rm1?serverTimezone=GMT%2B8&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: dahuacloud
     type: com.alibaba.druid.pool.DruidDataSource
@@ -19,20 +25,18 @@ spring:
       initial-size: 5
       max-total: 5
       max-wait-millis: 200
-#  cloud:
-#    alibaba:
-#      seata:
-#        tx-service-group: my_test_tx_group
+
 
 seata:
-  tx-service-group: my_test_tx_group
+#  tx-service-group: my_test_tx_group
   service:
-    vgroup_mapping:
+    vgroup-mapping:
+#      txServiceGroup: default
       my_test_tx_group: default
     grouplist:
       default: 127.0.0.1:8091
     enable-degrade: false
-    disable-global-transaction: false
+#    disable-global-transaction: false
 
 
 mybatis-plus:
@@ -73,6 +77,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://user:123456@${EUREKA:eureka7001.com}:7001/eureka/ #注册中心地址:
-
-
-

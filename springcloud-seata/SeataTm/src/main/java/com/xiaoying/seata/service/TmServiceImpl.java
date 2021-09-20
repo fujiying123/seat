@@ -1,10 +1,11 @@
-package com.dahua.seata.service;
+package com.xiaoying.seata.service;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.dahua.seata.client.RmOneFeginClient;
-import com.dahua.seata.client.RmTwoFeginClient;
-import com.dahua.seata.entities.TmOrder;
-import com.dahua.seata.mapper.TmMapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xiaoying.seata.client.RmOneFeginClient;
+import com.xiaoying.seata.client.RmTwoFeginClient;
+import com.xiaoying.seata.entities.TmOrder;
+import com.xiaoying.seata.mapper.TmMapper;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,12 +29,14 @@ public class TmServiceImpl extends ServiceImpl<TmMapper, TmOrder> implements TmS
     private RmTwoFeginClient rmTwoFeginClient;
 
     @Override
+    @GlobalTransactional
     public void insert(Integer num) {
         TmOrder order = new TmOrder();
         order.setTotalNum(num);
-        this.tmMapper.insert(order);
+        this.tmMapper.insertOrder(order);
         rmTwoFeginClient.money(num);
 //        int i = 10/0;
         rmOneFeginClient.integral(num);
+        int i =10/0;
     }
 }
