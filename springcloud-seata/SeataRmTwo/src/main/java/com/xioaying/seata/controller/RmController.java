@@ -1,7 +1,7 @@
 package com.xioaying.seata.controller;
 
 import com.xioaying.seata.service.RmTwoService;
-import io.seata.spring.annotation.GlobalTransactional;
+//import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

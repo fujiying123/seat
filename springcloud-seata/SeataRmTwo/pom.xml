@@ -115,10 +115,10 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
-            <!-- 去除自带seata的版本 -->
+            &lt;!&ndash; 去除自带seata的版本 &ndash;&gt;
             <exclusions>
                 <exclusion>
                     <artifactId>seata-all</artifactId>
@@ -132,12 +132,32 @@
             <groupId>io.seata</groupId>
             <artifactId>seata-all</artifactId>
             <version>1.4.2</version>
-            <!-- <exclusions>
+            &lt;!&ndash; <exclusions>
                  <exclusion>
                      <artifactId>asm</artifactId>
                      <groupId>org.ow2.asm</groupId>
                  </exclusion>
-             </exclusions>-->
+             </exclusions>&ndash;&gt;
+        </dependency>-->
+
+
+        <!--yml中seata配置文件生效，可以在yml文件中配置file.conf和registry.conf-->
+        <!--这套组合相对其他组合简单方便-->
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+            <version>1.4.2</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>seata-all</artifactId>
+                    <groupId>io.seata</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>1.4.2</version>
         </dependency>
     </dependencies>
 
