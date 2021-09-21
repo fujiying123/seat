@@ -33,9 +33,10 @@ public class TmServiceImpl extends ServiceImpl<TmMapper, TmOrder> implements TmS
     public void insert(Integer num) {
         TmOrder order = new TmOrder();
         order.setTotalNum(num);
-        this.tmMapper.insertOrder(order);
+        this.baseMapper.insert(order);
+//        this.tmMapper.insertOrder(order);
         rmTwoFeginClient.money(num);
-//        int i = 10/0;
+////        int i = 10/0;
         rmOneFeginClient.integral(num);
         int i =10/0;
     }

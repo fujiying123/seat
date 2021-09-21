@@ -34,7 +34,13 @@ public class DataSourceConfiguration {
         return new DataSourceProxy(druidDataSource);
     }
 
-    @Bean
+    /**
+     * 此配置会使mybatisplus失效
+     * @param dataSourceProxy
+     * @return
+     * @throws Exception
+     */
+//    @Bean
     public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy)throws Exception{
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSourceProxy);

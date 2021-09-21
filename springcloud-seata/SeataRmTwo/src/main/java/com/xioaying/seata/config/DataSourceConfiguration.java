@@ -34,7 +34,7 @@ public class DataSourceConfiguration {
         return new DataSourceProxy(druidDataSource);
     }
 
-    @Bean
+//    @Bean
     public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy)throws Exception{
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSourceProxy);
