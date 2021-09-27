@@ -9,18 +9,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @Description：
- * @Date： 2021/9/19
+ * @Date： 2021/9/25
  * @Author：小影
  */
 @SpringBootApplication
 @EnableFeignClients
+@MapperScan("com.xiaoying.seata.mapper")
 @EnableDiscoveryClient
-@EnableTransactionManagement(proxyTargetClass = true)
-@MapperScan(basePackages = {"com.xiaoying.seata.mapper"})
-//@EnableAutoDataSourceProxy
-public class SeataTmApp {
+@EnableTransactionManagement
+public class SharedingSeataTmApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(SeataTmApp.class,args);
+        SpringApplication.run(SharedingSeataTmApp.class,args);
     }
 }

@@ -9,6 +9,7 @@
     <modules>
         <module>SeataRmTwo</module>
         <module>SeataTm</module>
+        <module>SeataRmOne</module>
     </modules>
 
     <name>springcloud-seata</name>

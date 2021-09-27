@@ -1,8 +1,8 @@
-seata:
-  enabled: true
-  enable-auto-data-source-proxy: true
-  service:
-    disable-global-transaction: false
+#seata:
+#  enabled: true
+#  enable-auto-data-source-proxy: true
+#  service:
+#    disable-global-transaction: false
 
 server:
   port: 8901
@@ -33,25 +33,25 @@ spring:
       max-wait-millis: 200
 
 
-#seata:
-#  enableAutoDataSourceProxy: true
-#  enabled: true
-#  enable-auto-data-source-proxy: true
-#  service:
-#    vgroup_mapping:
-#      my_test_tx_group: default
-#    grouplist:
-#      default: 127.0.0.1:8091
-#    enable-degrade: false
-#    disable-global-transaction: false
-#  config:
-#    type: file
-#    file:
-#      name: file.conf
-#  registry:
-#    type: file
-#    file:
-#      name: file.conf
+seata:
+  enableAutoDataSourceProxy: true
+  enabled: true
+  enable-auto-data-source-proxy: true
+  service:
+    vgroup_mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 127.0.0.1:8091
+    enable-degrade: false
+    disable-global-transaction: false
+  registry:
+    type: eureka
+    eureka:
+      service-url: http://eureka7001.com:7001/eureka/
+      application: default
+      weight: 1
+
+
 
 
 

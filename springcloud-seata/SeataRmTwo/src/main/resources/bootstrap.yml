@@ -36,7 +36,12 @@ seata:
       default: 127.0.0.1:8091
     enable-degrade: false
     disable-global-transaction: false
-
+  registry:
+    type: eureka
+    eureka:
+      service-url: http://eureka7001.com:7001/eureka/
+      application: default
+      weight: 1
 
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/com.exchange.mapper/*Mapper.com.exchange.mapper
